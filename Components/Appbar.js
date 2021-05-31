@@ -14,6 +14,6 @@ export default AppBar;
 const styles = StyleSheet.create ({
    item: {
       backgroundColor : "teal",
-      width: 380
+      width: '100%',
    }
 })

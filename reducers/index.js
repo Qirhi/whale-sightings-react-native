@@ -2,7 +2,7 @@ import { SELECT_SPECIES, FETCH_SPECIES_START, FETCH_SPECIES_SUCCESS, FETCH_SPECI
 
 
 const initialState = {
-  species: "gray whale",
+  species: "orca",
   loading: false,
   error: "",
   sightings: [
@@ -10,9 +10,10 @@ const initialState = {
       id:"5a049b7e686f743ec5040000",
       species:"orca",
       quantity:"5",
-      description:"This is a test",url:"http://hotline.whalemuseum.org/sightings/5a049b7e686f743ec5040000",latitude:47.79953,
+      description:"test description",
+      url:"http://hotline.whalemuseum.org/sightings/5a049b7e686f743ec5040000",latitude:47.79953,
       longitude:-122.47996699999999,
-      location:"",
+      location:"test location",
       sighted_at:"2017-11-09T18:11:00Z",
       created_at:"2017-11-09T18:16:30Z",
       updated_at:"2017-11-14T22:20:45Z",

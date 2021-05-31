@@ -1,13 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { Component } from 'react';
 import { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Button, Image } from 'react-native';
+import { StyleSheet, Text, View, Button, Image, ImageBackground } from 'react-native';
 import { Provider as PaperProvider } from "react-native-paper";
 import theme from './CustomProperties/Themes';
 import AppBarExample from './Components/Appbar';
 import TextInputSection from './Components/TextInputSection';
-import Card from './Components/IndivCard';
-import Cards from './Components/Cards';
+import Sightings from './Components/Sightings';
+import SelectSpeciesButtons from './Components/SelectSpeciesButtons';
 import axios from 'axios';
 
 
@@ -23,6 +23,7 @@ import { appReducer } from './reducers/index';
 // import { fetchData, fetchDataFulfilled, fetchDataRejected } from './reducer';
 
 import { Provider } from 'react-redux';
+import { SelectSpecies } from './actions';
 //import your store
 // import store from './redux/store';
 // import registerServiceWorker from './registerServiceWorker';
@@ -36,22 +37,22 @@ const App = () => {
   const [species, setSpecies] = useState([]);
 
 
-useEffect(() => {
+// useEffect(() => {
       
-  // begin API request
-  axios.get(`http://hotline.whalemuseum.org/api.json?species=orca`) 
+//   // begin API request
+//   axios.get(`http://hotline.whalemuseum.org/api.json?species=orca`) 
 
-    .then(res => {
-      // console.log("res: ", res);
-      console.log("res.data.species: ", res.data)
-      setSpecies([res.data.species])
-  })
-  .catch(err => {
-      console.log("error: ", err)
-      // dispatch({ type: FETCH_SPECIES_FAILURE, payload: err });
-  })
+//     .then(res => {
+//       // console.log("res: ", res);
+//       console.log("res.data.species: ", res.data)
+//       setSpecies([res.data.species])
+//   })
+//   .catch(err => {
+//       console.log("error: ", err)
+//       // dispatch({ type: FETCH_SPECIES_FAILURE, payload: err });
+//   })
 
-  }, []);
+//   }, []);
 
 
 
@@ -59,37 +60,42 @@ useEffect(() => {
     alert("hi")
   }
 
+  const image = { uri: "https://reactjs.org/logo-og.png" };
+
   return (
     <Provider store={store}>
       <PaperProvider theme={theme}>
+        <ImageBackground source={image} style={styles.backgroundContainer}>
+            <AppBarExample/>
+            <View style={styles.container}>
+            
+              
+              <Image
+                style={styles.tinyLogo}
+                source={require('./assets/beach.jpg')}
+              />
+        
+        
+              <Text>Welcome!</Text>
 
-        <View style={styles.container}>
-          <AppBarExample/>
-          
-          <Image
-            style={styles.tinyLogo}
-            source={require('./assets/beach.jpg')}
-          />
-          <Cards props={species}/>
-          <Text>Welcome!</Text>
+            </View>
 
-        </View>
-        <View>
-
-        </View>
-        <View> 
-        <Card/>
-        </View>
-        <View>
-          <TextInputSection/>
-          <Button
-            title="Submit"
-            color="teal"
-            onPress={onPressLearnMore}
-          />
-          {/* <AppBarExample/> */}
-          <StatusBar style="auto" />
-        </View>
+            <View styles={styles.container}>
+            <SelectSpeciesButtons/>
+            <Sightings/>
+            </View>
+      
+            <View>
+              <TextInputSection/>
+              <Button
+                title="Submit"
+                color="teal"
+                onPress={onPressLearnMore}
+              />
+              {/* <AppBarExample/> */}
+              <StatusBar style="auto" />
+            </View>
+        </ImageBackground>
       </PaperProvider>
     </Provider>
   );
@@ -98,6 +104,9 @@ useEffect(() => {
 export default App;
 
 const styles = StyleSheet.create({
+  backgroundContainer: {
+    width: '100%',
+  },
   container: {
     flex: 1,
     backgroundColor: '#ffC0CB',
