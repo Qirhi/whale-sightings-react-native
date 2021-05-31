@@ -64,9 +64,11 @@ sightings: [
 const styles = StyleSheet.create({
   card: {
     color: 'blue',
-    maxWidth: '40%',
-    minWidth: '30%',
+    maxWidth: 300,
+    minWidth: '50%',
     margin: 5,
+    marginTop: 25,
+    marginBottom: 25,
   },
   container: {
   //   flex: 1,   

@@ -4,7 +4,7 @@ import { StyleSheet, Platform } from 'react-native';
 
 const AppBar = () => (
   <Appbar.Header style = {styles.item}>
-     <Appbar.Content title="Home" />
+     <Appbar.Content title="Whale Sightings" />
       <Appbar.Action icon="magnify" onPress={() => {}} />
   </Appbar.Header>
 );
@@ -13,7 +13,7 @@ export default AppBar;
 
 const styles = StyleSheet.create ({
    item: {
-      backgroundColor : "teal",
+      backgroundColor : "dodgerblue",
       width: '100%',
    }
 })

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { connect } from "react-redux";
 
 import SightingCard from './SightingCard';
+import ActivityIndicatorWheel from './ActivityIndicatorWheel';
 import { StyleSheet, Text, View, Button, Image } from 'react-native';
 
 
@@ -11,7 +12,7 @@ const Sightings = (props) => {
   // console.log("Cards: props ", props)
   // console.log("Cards: sightings ", sightings);
   if (!sightings) {
-    return <Text> loading </Text>
+    return <ActivityIndicatorWheel/>
   }
 
   return (
@@ -46,7 +47,7 @@ export default connect(mapStateToProps, null)(Sightings);
 const styles = StyleSheet.create({
   container: {
   //   flex: 1,   
-    backgroundColor: 'powderblue',    
+    backgroundColor: '#005996',    
     alignItems: 'center',
     justifyContent: 'center',
     padding: 16,

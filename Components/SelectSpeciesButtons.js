@@ -90,7 +90,7 @@ export default connect(null, mapDispatchToProps)(SelectSpecies);
 const styles = StyleSheet.create({
     container: {
     //   flex: 1,   
-      backgroundColor: 'powderblue',    
+      // backgroundColor: 'powderblue',    
       alignItems: 'center',
       justifyContent: 'center',
       padding: 16,

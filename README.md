@@ -28,9 +28,9 @@ https://blog.codemagic.io/how-to-build-react-native-ui-app-with-material-ui/
 
 [] npm install axios
 
-[] npm install redux
+[] npm install redux (INSTALL FIRST)
 
-[] npm install react-redux
+[] npm install react-redux (INSTALL SECOND)
 
 
 
@@ -50,3 +50,11 @@ https://blog.codemagic.io/how-to-build-react-native-ui-app-with-material-ui/
 [] npm install --save redux-thunk
 
   import thunk from 'redux-thunk';
+
+  ## Install react-router-native
+
+  https://reactrouter.com/native/guides/quick-start
+
+  [] npm install react-router-native
+
+  [] import { NativeRouter, Route, Link } from "react-router-native";
