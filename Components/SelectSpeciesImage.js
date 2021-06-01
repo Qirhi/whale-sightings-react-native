@@ -6,7 +6,7 @@ const image = { uri: "https://cdn.pixabay.com/photo/2017/02/09/15/10/sea-2052650
 const SelectSpeciesImage = () => (
   <View style={styles.container}>
     {/* <ImageBackground source={image} style={styles.image}> */}
-      <Text style={styles.text}>Select Funk Species</Text>
+      <Text style={styles.text}>Select Species</Text>
     {/* </ImageBackground> */}
   </View>
 );
@@ -24,10 +24,11 @@ const styles = StyleSheet.create({
   },
   text: {
     color: 'white',
-    fontSize: 42,
-    fontWeight: 'bold',
+    fontSize: 30,
+    // fontWeight: 'bold',
     textAlign: 'center',
     backgroundColor: 'dodgerblue',
+    padding: 10,
   }
 });
 
