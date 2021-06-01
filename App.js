@@ -2,17 +2,20 @@
 // https://aboutreact.com/animation-splash-screen-with-zoom-effect/
 
 // Import React
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 // Import required components
 import {View, Text, StyleSheet, Image, Animated, ImageBackground} from 'react-native';
 
 const App = () => {
-  const width = new Animated.Value(360);
-  const height = new Animated.Value(600);
-  const SITE_BANNER_VERTICAL_IMAGE =
-    'https://cdn.pixabay.com/photo/2015/11/02/18/32/water-1018808_1280.jpg';
-  const SAMPLE_APP_LOGO =
-    'https://raw.githubusercontent.com/AboutReact/sampleresource/master/react_logo.png';
+  const [align, setAlign] = useState('center');
+  const [alignsecond, setAlignsecond] = useState(false);
+
+  useEffect(() => {
+    let myTimeout = setTimeout(() => {
+      setAlign('flex-start'), setAlignsecond(true);
+    }, 3000);
+    return () => clearTimeout(myTimeout);
+  }, []);
 
   // useEffect(() => {
   //   Animated.timing(
@@ -35,20 +38,34 @@ const App = () => {
 
   return (
 
+
     <View style={styles.container}>
+
       <ImageBackground
         source={require('./assets/whales.jpeg')}
         style={styles.backgroundImage}>
+          <>
+    {!alignsecond ? null : (
+<>
         <Text style={styles.textStyle}>
-            Whale           
+            Whale{'         '}           
         </Text>
         <Text style={styles.textStyleSecondary}>
-                       Sightings
+        {'   '}Sightings
         </Text>
+        </>
+    )}
+    </>
       </ImageBackground>
+
     </View> 
+
   );
 };
+
+
+
+
 
 export default App;
 
@@ -69,19 +86,25 @@ const styles = StyleSheet.create({
     height: 100,
   },
   textStyle: {
-    fontSize: 25,
+    fontSize: 50,
     color: 'white',
     textAlign: 'center',
+    fontWeight: 'bold,',
   },
   textStyleSecondary: {
-    fontSize: 25,
+    fontSize: 50,
     color: 'dodgerblue',
     textAlign: 'center',
+    fontWeight: 'bold,',
+    textDecorationLine: 'underline',
+    textDecorationStyle: 'double',
+    textDecorationColor: 'white',
+    lineHeight: 40,
+    marginBottom: 300,
   },
   backgroundImage: {
     flex: 1,
-    // resizeMode: "cover",
-    resizeMode: "contain",
+    resizeMode: "cover",
     justifyContent: "center"
   }
 });
