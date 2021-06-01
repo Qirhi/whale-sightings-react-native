@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { connect } from "react-redux";
 import { selectSpecies, getSpecies } from '../actions/index';
 
-import { View, Text, Pressable, StyleSheet } from "react-native";
+import { View, Text, Pressable, StyleSheet, ImageBackground } from "react-native";
 
 
 
@@ -47,11 +47,13 @@ const SelectSpecies = (props) => {
 
 
   return (
+    <ImageBackground resizeMode= 'cover' source={require('../assets/dolphins.jpeg')} style={styles.backgroundContainer}>
+
     <View style={styles.container}>
 
-  
-      <View style={styles.row}>
 
+      <View style={styles.row}>
+     
         {
           speciesList.map(species => {
 
@@ -74,8 +76,11 @@ const SelectSpecies = (props) => {
                     </Pressable>
           })
         } 
+     
       </View>
+        
     </View>
+    </ImageBackground>
   )
 
 };
@@ -88,6 +93,11 @@ export default connect(null, mapDispatchToProps)(SelectSpecies);
 // style={styles.button}
 
 const styles = StyleSheet.create({
+  backgroundContainer: {
+    // flex: 1,
+
+    backgroundColor: 'red',
+  },
     container: {
     //   flex: 1,   
       // backgroundColor: 'powderblue',    
@@ -103,7 +113,7 @@ const styles = StyleSheet.create({
     button: {
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'dodgerblue',
+        backgroundColor: '#005596',
     //   color: '#52B2Bf',
         borderRadius: 4,
         color: 'red',

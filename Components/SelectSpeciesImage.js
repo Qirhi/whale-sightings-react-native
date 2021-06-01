@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: 'white',
-    fontSize: 30,
+    fontSize: 35,
     // fontWeight: 'bold',
     textAlign: 'center',
     backgroundColor: 'dodgerblue',
