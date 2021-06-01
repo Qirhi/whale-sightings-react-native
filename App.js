@@ -1,135 +1,3 @@
-// Example of Animation Splash Screen with Zoom Effect
-// https://aboutreact.com/animation-splash-screen-with-zoom-effect/
-
-// Import React
-import React, {useEffect, useState} from 'react';
-// Import required components
-import {View, Text, StyleSheet, Image, Animated, ImageBackground} from 'react-native';
-
-const App = () => {
-  const [align, setAlign] = useState('center');
-  const [alignsecond, setAlignsecond] = useState(false);
-
-  useEffect(() => {
-    let myTimeout = setTimeout(() => {
-      setAlign('flex-start'), setAlignsecond(true);
-    }, 3000);
-    return () => clearTimeout(myTimeout);
-  }, []);
-
-  // useEffect(() => {
-  //   Animated.timing(
-  //     width, // The animated value to drive
-  //     {
-  //       toValue: 360, // Animate to opacity: 1 (opaque)
-  //       duration: 450, // Make it take a while
-  //       useNativeDriver: false,
-  //     },
-  //   ).start(); // Starts the animation
-  //   Animated.timing(
-  //     height, // The animated value to drive
-  //     {
-  //       toValue: 750, // Animate to opacity: 1 (opaque)
-  //       duration: 10000, // Make it take a while
-  //       useNativeDriver: false,
-  //     },
-  //   ).start(); // Starts the animation
-  // }, []);
-
-  return (
-
-
-    <View style={styles.container}>
-
-      <ImageBackground
-        source={require('./assets/whales.jpeg')}
-        style={styles.backgroundImage}>
-          <>
-    {!alignsecond ? null : (
-<>
-        <Text style={styles.textStyle}>
-            Whale{'         '}           
-        </Text>
-        <Text style={styles.textStyleSecondary}>
-        {'   '}Sightings
-        </Text>
-        </>
-    )}
-    </>
-      </ImageBackground>
-
-    </View> 
-
-  );
-};
-
-
-
-
-
-export default App;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    position: 'relative',
-    backgroundColor: '#2F7ECC',
-  },
-  logoContainer: {
-    flex: 1,
-    alignItems: 'center',
-    paddingTop: 48,
-    backgroundColor: 'rgba(11, 56, 82, 0.3)',
-  },
-  logo: {
-    width: 100,
-    height: 100,
-  },
-  textStyle: {
-    fontSize: 50,
-    color: 'white',
-    textAlign: 'center',
-    fontWeight: 'bold,',
-  },
-  textStyleSecondary: {
-    fontSize: 50,
-    color: 'dodgerblue',
-    textAlign: 'center',
-    fontWeight: 'bold,',
-    textDecorationLine: 'underline',
-    textDecorationStyle: 'double',
-    textDecorationColor: 'white',
-    lineHeight: 40,
-    marginBottom: 300,
-  },
-  backgroundImage: {
-    flex: 1,
-    resizeMode: "cover",
-    justifyContent: "center"
-  }
-});
-
-
-/*
-
-    <View style={styles.container}>
-      <Animated.Image
-        source={{uri: SITE_BANNER_VERTICAL_IMAGE}}
-        style={{
-          width: width,
-          height: height,
-          position: 'absolute',
-        }}
-      />
-    </View>
-
-      <View style={styles.logoContainer}>
-        <Image source={{uri: SAMPLE_APP_LOGO}} style={styles.logo} />
-        <Text style={styles.textStyle}>
-          Example of Animation Splash Screen with Zoom Effect
-        </Text>
-      </View>
-
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 import { useState, useEffect } from 'react';
@@ -139,13 +7,14 @@ import theme from './CustomProperties/Themes';
 
 
 // import components
+import Splash from './Components/Splash';
 import Landing from './Components/Landing';
 import AppBar from './Components/Appbar';
 import SelectSpeciesImage from './Components/SelectSpeciesImage';
 import SelectSpeciesButtons from './Components/SelectSpeciesButtons';
 import TextInputSection from './Components/TextInputSection';
 import Sightings from './Components/Sightings';
-import ActivityIndicatorWheel from './Components/ActivityIndicatorWheel';
+
 
 import axios from 'axios';
 
@@ -179,6 +48,24 @@ const App = () => {
   const [species, setSpecies] = useState([]);
 
 
+// useEffect(() => {
+      
+//   // begin API request
+//   axios.get(`http://hotline.whalemuseum.org/api.json?species=orca`) 
+
+//     .then(res => {
+//       // console.log("res: ", res);
+//       console.log("res.data.species: ", res.data)
+//       setSpecies([res.data.species])
+//   })
+//   .catch(err => {
+//       console.log("error: ", err)
+//       // dispatch({ type: FETCH_SPECIES_FAILURE, payload: err });
+//   })
+
+//   }, []);
+
+
 
   function onPressLearnMore (e)  {
     alert("hi")
@@ -189,15 +76,27 @@ const App = () => {
 
   return (
     <Provider store={store}>
-        <SafeAreaView>  
-         <ImageBackground
-            source={require('./assets/beach.jpg')}
-            style={styles.backgroundImage}>
-            <Text>
-               Some text here ...
-            </Text>
-        </ImageBackground>
-      </SafeAreaView>
+        
+            <ScrollView contentContainerStyle={styles.scrollView} contentContainerStyle={{ flexGrow: 1 }}>
+            {/* <ScrollView > */}
+
+                <NativeRouter>
+                  {/* <SafeAreaView>   */}
+                    <PaperProvider theme={theme}>
+                        {/* <View style={styles.container}> */}
+
+
+
+
+                          <Route exact path="/" component={Splash} />
+                          <Route path="/landing" component={Landing} />
+
+                        {/* </View> */}
+                    </PaperProvider>
+                    {/* </SafeAreaView> */}
+                </NativeRouter>
+            </ScrollView>
+        
     </Provider>
   );
 }
@@ -217,15 +116,15 @@ const styles = StyleSheet.create({
 //     justifyContent: 'center',
 //     alignItems: 'center'
 // },
-backgroundImage:{
-    flex : 1,
-    width : '100%'
-},
-  // scrollView: {
-  //   backgroundColor: 'pink',
-  //   flexDirection: 'column',
-  //   // marginHorizontal: 20,
-  // },
+// backgroundImage:{
+//     flex : 1,
+//     width : '100%'
+// },
+  scrollView: {
+    backgroundColor: 'pink',
+    flexDirection: 'column',
+    // marginHorizontal: 20,
+  },
   // tinyLogo: {
   //   width: 430,
   //   height: 380,
@@ -233,4 +132,3 @@ backgroundImage:{
   // },
 });
 
-*/

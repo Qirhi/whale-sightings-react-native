@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from "react-redux";
 
 import SightingCard from './SightingCard';
-import ActivityIndicatorWheel from './ActivityIndicatorWheel';
+//import ActivityIndicatorWheel from './ActivityIndicatorWheel';
 import { StyleSheet, Text, View, Button, Image } from 'react-native';
 
 
