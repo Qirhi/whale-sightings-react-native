@@ -3,11 +3,11 @@ import { ImageBackground, StyleSheet, Text, View } from "react-native";
 
 const image = { uri: "https://cdn.pixabay.com/photo/2017/02/09/15/10/sea-2052650_1280.jpg" };
 
-const SelectSpeciesImage = () => (
+const Landing = () => (
   <View style={styles.container}>
-    {/* <ImageBackground source={image} style={styles.image}> */}
-      <Text style={styles.text}>Select Funk Species</Text>
-    {/* </ImageBackground> */}
+    {/* <ImageBackground source={image} style={styles.image}>
+      <Text style={styles.text}>Select Species</Text>
+    </ImageBackground> */}
   </View>
 );
 
@@ -31,4 +31,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default SelectSpeciesImage;
+export default Landing;

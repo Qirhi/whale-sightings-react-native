@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { SafeAreaView, StyleSheet, TextInput } from "react-native";
 
 const TextInputSection = () => {
-  const [text, onChangeText] = React.useState("");
-  const [number, onChangeNumber] = React.useState(null);
+  const [text, onChangeText] = useState("");
+  // const [number, onChangeNumber] = React.useState(null);
 
   return (
     <SafeAreaView>
       <TextInput
         style={styles.input}
-        onChangeText={onChangeText}
+        onChangeText={()=>onChangeText()}
         value={text}
         placeholder="  search species"
       />
