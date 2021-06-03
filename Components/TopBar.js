@@ -15,5 +15,6 @@ const styles = StyleSheet.create ({
    item: {
       backgroundColor : "dodgerblue",
       width: '100%',
+      shadowOpacity: 0,
    }
 })

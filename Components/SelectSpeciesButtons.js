@@ -47,7 +47,7 @@ const SelectSpecies = (props) => {
 
 
   return (
-    <ImageBackground resizeMode= 'cover' source={require('../assets/dolphins.jpeg')} style={styles.backgroundContainer}>
+    <ImageBackground resizeMode= 'cover' source={require('../assets/water2.jpeg')} style={styles.backgroundContainer}>
 
     <View style={styles.container}>
 
@@ -95,8 +95,8 @@ export default connect(null, mapDispatchToProps)(SelectSpecies);
 const styles = StyleSheet.create({
   backgroundContainer: {
     // flex: 1,
-
-    backgroundColor: 'red',
+    backgroundColor: 'steelblue',
+    alignSelf: 'stretch',
   },
     container: {
     //   flex: 1,   
@@ -113,7 +113,8 @@ const styles = StyleSheet.create({
     button: {
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#005596',
+        // backgroundColor: '#005596',
+        backgroundColor: 'white',
     //   color: '#52B2Bf',
         borderRadius: 4,
         color: 'red',
@@ -132,7 +133,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         lineHeight: 20,
         letterSpacing: 1,
-        color: 'white',
+        color: '#111111',
     },
     selectedText: {
         color: 'lightgrey',

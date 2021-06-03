@@ -8,7 +8,7 @@ import theme from './CustomProperties/Themes';
 
 // import components
 import Landing from './Components/Landing';
-import AppBar from './Components/Appbar';
+import TopBar from './Components/TopBar';
 import SelectSpeciesImage from './Components/SelectSpeciesImage';
 import SelectSpeciesButtons from './Components/SelectSpeciesButtons';
 import TextInputSection from './Components/TextInputSection';
