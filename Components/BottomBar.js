@@ -19,5 +19,6 @@ const styles = StyleSheet.create ({
       width: '100%',
       shadowOpacity: 0,
       justifyContent: 'space-around',
+      elevation: 0,
    }
 })

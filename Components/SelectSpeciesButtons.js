@@ -33,7 +33,7 @@ const SelectSpecies = (props) => {
 
     const speciesButtonPressed = (species) => {
     // dispatch to the action creator... change species state
-    console.log("handlePress fires: species", species)
+    console.log("speciesButtonPressed fires: species", species)
 
     setSelectedButtonId(species) // species is a string, using it as an id of the button
     
@@ -94,9 +94,7 @@ export default connect(null, mapDispatchToProps)(SelectSpecies);
 
 const styles = StyleSheet.create({
   backgroundContainer: {
-    // flex: 1,
     backgroundColor: 'steelblue',
-    alignSelf: 'stretch',
   },
     container: {
     //   flex: 1,   
@@ -109,6 +107,8 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         flexWrap: "wrap",
         maxWidth: "100%",
+        paddingTop: 10,
+        paddingBottom: 10,
       },
     button: {
         alignItems: 'center',

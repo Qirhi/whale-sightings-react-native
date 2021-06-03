@@ -9,13 +9,14 @@ import theme from './CustomProperties/Themes';
 // import components
 import Landing from './Components/Landing';
 import TopBar from './Components/TopBar';
-import SelectSpeciesImage from './Components/SelectSpeciesImage';
+import SelectSpeciesTitleBar from './Components/SelectSpeciesTitleBar';
 import SelectSpeciesButtons from './Components/SelectSpeciesButtons';
 import TextInputSection from './Components/TextInputSection';
 import Sightings from './Components/Sightings';
 
 // import views
 import Splash from './views/Splash';
+// import Home from './views/Home';
 import Home from './views/Home';
 
 
@@ -38,6 +39,7 @@ import { NativeRouter, Route, Switch, Link } from "react-router-native";
 
 import { Provider } from 'react-redux';
 import { SelectSpecies } from './actions';
+import BottomBar from './Components/BottomBar';
 //import your store
 // import store from './redux/store';
 // import registerServiceWorker from './registerServiceWorker';
@@ -51,62 +53,59 @@ const App = () => {
 
 
 
-  const image = { uri: "https://cdn.pixabay.com/photo/2015/11/02/18/32/water-1018808_1280.jpg" };
-
   return (
     <Provider store={store}>
-        
-            <ScrollView contentContainerStyle={styles.scrollView} contentContainerStyle={{ flexGrow: 1 }}>
-            {/* <ScrollView > */}
+      <NativeRouter>
+        <PaperProvider theme={theme}>
 
-                <NativeRouter>
-                  {/* <SafeAreaView>   */}
-                    <PaperProvider theme={theme}>
-                        {/* <View style={styles.container}> */}
+            <SafeAreaView style={styles.container}>
+            
+              <TopBar style={styles.header}/>
+                
+                  <ScrollView contentContainerStyle={styles.scrollView} contentContainerStyle={{ flexGrow: 1 }}>
+
                         <Switch>
 
                           <Route exact path="/home" component={Splash} />
                           <Route path="/" component={Home} />
 
-                          </Switch>
-                        {/* </View> */}
-                    </PaperProvider>
-                    {/* </SafeAreaView> */}
-                </NativeRouter>
-            </ScrollView>
-        
+                        </Switch>
+
+                  </ScrollView>
+
+              <BottomBar style={styles.footer}/>
+
+            </SafeAreaView>
+
+        </PaperProvider>
+      </NativeRouter>
     </Provider>
+
   );
-}
+};
 
 export default App;
 
 const styles = StyleSheet.create({
-//   backgroundContainer: {
-//     flex: 1,
-//     width: '100%',
-//     // height: '100%',
-//     height: '25%',
-//     resizeMode: "center",
-//   },
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center'
-// },
-// backgroundImage:{
-//     flex : 1,
-//     width : '100%'
-// },
-  scrollView: {
-    backgroundColor: 'pink',
-    flexDirection: 'column',
-    // marginHorizontal: 20,
+  container: {
+      flexDirection: 'column',
+      flex: 1,
+      justifyContent: 'center',
+      backgroundColor: 'red',
   },
-  // tinyLogo: {
-  //   width: 430,
-  //   height: 380,
-
-  // },
+  header: {
+    flex: .15,
+    flexGrow: 1,
+    elevation: 0,
+  },
+  scrollView: {
+    flexDirection: 'column',
+    flex: .7,
+    alignSelf: 'stretch',
+    backgroundColor: 'pink',
+  },
+  footer: {
+    flex: .15,
+  }
 });
 

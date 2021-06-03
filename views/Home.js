@@ -7,74 +7,72 @@ import { StyleSheet, Text, View, Button, Image, ImageBackground, ScrollView, Saf
 import TopBar from '../Components/TopBar';
 import BottomBar from '../Components/BottomBar';
 
-import SelectSpeciesImage from '../Components/SelectSpeciesImage';
+import SelectSpeciesImage from '../Components/SelectSpeciesTitleBar';
 import SelectSpeciesButtons from '../Components/SelectSpeciesButtons';
+import SelectSpeciesTitleBar from '../Components/SelectSpeciesTitleBar';
 
 
 
 
-const Home = () => {
+const TestHome = () => {
 
   const image = { uri: "https://cdn.pixabay.com/photo/2015/11/02/18/32/water-1018808_1280.jpg" };
 
+  // NOTE:  I colored the background dodgerblue to cover up the fact that i couldn't get the components to extend all the way to fill the height of the screen
   return (
-      <SafeAreaView style={{flex:1}}>
+      // <SafeAreaView style={{flex:1, backgroundColor: 'dodgerblue'}}> 
         <ScrollView style={styles.scrollView}>
-        <TopBar/>
+        {/* <TopBar/> */}
 
-        <ImageBackground resizeMode= 'cover' source={require('../assets/humpback.jpeg')} style={styles.backgroundContainer}>
-        <Text style={styles.text}>Welcome</Text>
-        </ImageBackground>
+          <View style={styles.topView}>
+          <ImageBackground resizeMode= 'cover' source={require('../assets/humpback.jpeg')} style={styles.backgroundContainer}>
+            <Text style={styles.text}>Welcome</Text>
+          </ImageBackground>
+          </View>
 
-        <SelectSpeciesImage/>
+          <View style={styles.bottomView}>
+            <SelectSpeciesTitleBar/>
+            <SelectSpeciesButtons/>
+          </View>
 
-        <SelectSpeciesButtons/>
         </ScrollView>
-        <View  style={styles.footer}>
-                  <BottomBar/>
-                  </View>
+        // <View  style={styles.footer}>
+        //           {/* <BottomBar/> */}
+        //           </View>
 
-      </SafeAreaView>
+      // </SafeAreaView>
   );
 };
 
-export default Home;
+export default TestHome;
 
 const styles = StyleSheet.create({
+  scrollView: {
+    backgroundColor: 'dodgerblue',
+    flexDirection: 'column',
+    alignSelf: 'stretch',
+    height: null,
+    flex: 1,
+  },
     backgroundContainer: {
+      // flex: .5,
+      backgroundColor: 'slateblue',
+      // alignSelf: 'stretch',
+    },
+    topView: {
       flex: 1,
-      resizeMode: "center",
-      backgroundColor: 'red',
+      alignSelf: 'stretch',
+    },
+    bottomView: {
+      flex: 1, 
+      alignSelf: 'stretch',
     },
     text: {
       fontSize: 40,
       color: 'white',
       alignSelf: 'center',
-      paddingTop: 200,
-      paddingBottom: 150,
+      paddingTop: 100,
+      paddingBottom: 120,
       fontWeight: 'bold',
     },
-
-  //   container: {
-  //     flex: 1,
-  //     justifyContent: 'center',
-  //     alignItems: 'center'
-  // },
-  // backgroundImage:{
-  //     flex : 1,
-  //     width : '100%'
-  // },
-    scrollView: {
-      backgroundColor: 'dodgerblue',
-      flexDirection: 'column',
-      flexGrow: 1,
-      alignSelf: 'stretch',
-      height: null,
-      flex: .8,
-    },
-    footer: {
-      alignSelf: 'stretch',
-      height: null,
-      flex: .2,
-    }
   });
