@@ -31,9 +31,9 @@ const SelectSpecies = (props) => {
     const [selectedButtonId, setSelectedButtonId] = useState("");
 
 
-    const speciesButtonPressed = (species) => {
+    const speciesPressed = (species) => {
     // dispatch to the action creator... change species state
-    console.log("speciesButtonPressed fires: species", species)
+    console.log("speciesPressed fires: species", species)
 
     setSelectedButtonId(species) // species is a string, using it as an id of the button
     
@@ -65,7 +65,7 @@ const SelectSpecies = (props) => {
                         ]}
                         key={`${species}`} 
                         id={`${species}`} 
-                        onPress={() => speciesButtonPressed(species)} 
+                        onPress={() => speciesPressed(species)} 
                     >
                         <Text 
                               style={[

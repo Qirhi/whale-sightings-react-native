@@ -40,6 +40,7 @@ import { NativeRouter, Route, Switch, Link } from "react-router-native";
 import { Provider } from 'react-redux';
 import { SelectSpecies } from './actions';
 import BottomBar from './Components/BottomBar';
+
 //import your store
 // import store from './redux/store';
 // import registerServiceWorker from './registerServiceWorker';
@@ -91,7 +92,7 @@ const styles = StyleSheet.create({
       flexDirection: 'column',
       flex: 1,
       justifyContent: 'center',
-      backgroundColor: 'red',
+      backgroundColor: '#0d4077',
   },
   header: {
     flex: .15,
