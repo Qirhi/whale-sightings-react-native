@@ -6,6 +6,8 @@ const AppBar = () => (
   <Appbar.Header style = {styles.item}>
      <Appbar.Content title="Whale Sightings" />
       <Appbar.Action icon="magnify" onPress={() => {}} />
+      <Appbar.Action icon="arrow-left" onPress={() => {}} />
+
   </Appbar.Header>
 );
 
@@ -16,5 +18,6 @@ const styles = StyleSheet.create ({
       backgroundColor : "dodgerblue",
       width: '100%',
       shadowOpacity: 0,
+      justifyContent: 'space-between',
    }
 })

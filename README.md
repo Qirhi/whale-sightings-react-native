@@ -58,3 +58,39 @@ https://blog.codemagic.io/how-to-build-react-native-ui-app-with-material-ui/
   [] npm install react-router-native
 
   [] import { NativeRouter, Route, Link } from "react-router-native";
+
+  ## Icons
+
+  import Icon from 'react-native-vector-icons/FontAwesome';
+const myIcon = <Icon name="rocket" size={30} color="#900" />;
+
+arrow-left
+
+arrow-right
+
+binoculars
+
+coffee
+
+home
+
+list
+
+map
+
+ship
+
+tree
+
+globe
+
+globe-americas
+
+4 or 5 icons max
+
+Or add
+
+"FortAwesome/Font-Awesome": "*"
+to the dependencies in your component.json.
+
+https://www.npmjs.com/package/font-awesome

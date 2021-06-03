@@ -4,8 +4,10 @@ import { StyleSheet, Platform } from 'react-native';
 
 const BottomBar = () => (
   <Appbar.Header style = {styles.item}>
-     <Appbar.Content title="Bottom Bar" />
-      <Appbar.Action icon="magnify" onPress={() => {}} />
+     {/* <Appbar.Content title="Bottom Bar" /> */}
+      <Appbar.Action icon="home" onPress={() => {}} />
+      <Appbar.Action icon="binoculars" onPress={() => {}} />
+      <Appbar.Action icon="earth" onPress={() => {}} />
   </Appbar.Header>
 );
 
@@ -16,5 +18,6 @@ const styles = StyleSheet.create ({
       backgroundColor : "dodgerblue",
       width: '100%',
       shadowOpacity: 0,
+      justifyContent: 'space-around',
    }
 })
