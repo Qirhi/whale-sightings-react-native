@@ -11,14 +11,15 @@ import SelectSpeciesImage from '../Components/SelectSpeciesTitleBar';
 import SelectSpeciesButtons from '../Components/SelectSpeciesButtons';
 import SelectSpeciesTitleBar from '../Components/SelectSpeciesTitleBar';
 
-
+import { useHistory, useLocation } from 'react-router';
 
 
 const Home = () => {
 
   const image = { uri: "https://cdn.pixabay.com/photo/2015/11/02/18/32/water-1018808_1280.jpg" };
 
-  // NOTE:  I colored the background dodgerblue to cover up the fact that i couldn't get the components to extend all the way to fill the height of the screen
+  console.log("useLocation", useLocation())
+
   return (
         <ScrollView style={styles.scrollView}>
 
@@ -41,7 +42,8 @@ export default Home;
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: 'dodgerblue',
+    backgroundColor: 'dodgerblue',   // NOTE:  I colored the background dodgerblue to cover up the fact that i couldn't get the components to extend all the way to fill the height of the screen
+
     flexDirection: 'column',
     alignSelf: 'stretch',
     height: null,
@@ -66,4 +68,4 @@ const styles = StyleSheet.create({
     paddingBottom: 120,
     fontWeight: 'bold',
   },
-  });
+});

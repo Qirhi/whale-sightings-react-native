@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Appbar } from 'react-native-paper';
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { useHistory } from 'react-router';
 
 const BottomBar = () => {
@@ -8,17 +8,17 @@ const BottomBar = () => {
    const history = useHistory();
 
    const homePressed = () => {
-      console.log("homePressed fires");
+      // console.log("homePressed fires");
       history.push("/home")
    };
 
    const binosPressed = () => {
-      console.log("binosPressed fires");
+      // console.log("binosPressed fires");
       history.push("/home")
    };
 
    const earthPressed = () => {
-      console.log("earthPressed fires");
+      // console.log("earthPressed fires");
       history.push("/home")
    };
 

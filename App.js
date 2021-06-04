@@ -29,7 +29,7 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { appReducer } from './reducers/index';
 
-import { NativeRouter, Route, Switch, Link } from "react-router-native";
+import { NativeRouter, BackButton, Route, Switch, Link } from "react-router-native";
 
 
 //import reducer from our reducer file
@@ -57,28 +57,30 @@ const App = () => {
   return (
     <Provider store={store}>
       <NativeRouter>
-        <PaperProvider theme={theme}>
+        <BackButton>
+          <PaperProvider theme={theme}>
 
-            <SafeAreaView style={styles.container}>
+              <SafeAreaView style={styles.container}>
             
-              <TopBar style={styles.header}/>
-                
-                  <ScrollView contentContainerStyle={styles.scrollView} contentContainerStyle={{ flexGrow: 1 }}>
+                <TopBar style={styles.header}/>
+                  
+                    <ScrollView contentContainerStyle={styles.scrollView} contentContainerStyle={{ flexGrow: 1 }}>
 
-                        <Switch>
+                          <Switch>
 
-                          <Route exact path="/home" component={Splash} />
-                          <Route path="/" component={Home} />
+                            <Route exact path="/home" component={Splash} />
+                            <Route path="/" component={Home} />
 
-                        </Switch>
+                          </Switch>
 
-                  </ScrollView>
+                    </ScrollView>
 
-              <BottomBar style={styles.footer}/>
+                <BottomBar style={styles.footer}/>
 
-            </SafeAreaView>
+              </SafeAreaView>
 
-        </PaperProvider>
+          </PaperProvider>
+        </BackButton>
       </NativeRouter>
     </Provider>
 
