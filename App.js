@@ -18,7 +18,11 @@ import Search from './views/Search';
 
 import axios from 'axios';
 
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 1bc6f5dbf16b5b2a587cd8ed5091bfdc07f91846
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
@@ -57,20 +61,24 @@ const App = () => {
 
               <SafeAreaView style={styles.container}>
             
+
+
                 <TopBar style={styles.header}/>
                   
                     <ScrollView contentContainerStyle={styles.scrollView} contentContainerStyle={{ flexGrow: 1 }}>
 
                           <Switch>
 
-                            <Route exact path="/home" component={Splash} />
-                            <Route path="/" component={Home} />
+                            <Route exact path="/" component={Splash} />
+                            <Route path="/home" component={Home} />
 
                           </Switch>
 
                     </ScrollView>
 
                 <BottomBar style={styles.footer}/>
+
+
 
               </SafeAreaView>
 

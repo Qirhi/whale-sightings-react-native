@@ -22,9 +22,7 @@ const Splash = () => {
   }
 
   return (
-    // <Link to="/home" >
     <View style={styles.container}>
-      {/* <Link to="/home" > */}
     
         <ImageBackground
           source={require('../assets/whales.jpeg')}
@@ -33,28 +31,23 @@ const Splash = () => {
           {!alignsecond ? null : (
           <View style={styles.column}>
             <TouchableOpacity onPress={() => history.push("/home")}>
-            <Text style={styles.textStyle}>
-                Whale 🐋          
-            </Text>
-            <Text style={styles.textStyleSecondary}>
-            Sightings
-            </Text>
+              <Text style={styles.textStyle}>
+                  Whale 🐋          
+              </Text>
+              <Text style={styles.textStyleSecondary}>
+              Sightings
+              </Text>
             </TouchableOpacity>
           </View>
           )}
   
         </ImageBackground>
 
-      {/* </Link> */}
     </View> 
-    // </Link>
-
   );
 };
 
 export default Splash;
-
-
 
 
 const styles = StyleSheet.create({
@@ -62,16 +55,6 @@ const styles = StyleSheet.create({
     flex: 1,
     position: 'relative',
     backgroundColor: '#2F7ECC',
-  },
-  logoContainer: {
-    flex: 1,
-    alignItems: 'center',
-    paddingTop: 48,
-    backgroundColor: 'rgba(11, 56, 82, 0.3)',
-  },
-  logo: {
-    width: 100,
-    height: 100,
   },
   column: {
     flexDirection: 'column',
