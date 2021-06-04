@@ -22,7 +22,6 @@ import Home from './views/Home';
 
 import axios from 'axios';
 
- 
 
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
@@ -62,20 +61,24 @@ const App = () => {
 
               <SafeAreaView style={styles.container}>
             
+
+
                 <TopBar style={styles.header}/>
                   
                     <ScrollView contentContainerStyle={styles.scrollView} contentContainerStyle={{ flexGrow: 1 }}>
 
                           <Switch>
 
-                            <Route exact path="/home" component={Splash} />
-                            <Route path="/" component={Home} />
+                            <Route exact path="/" component={Splash} />
+                            <Route path="/home" component={Home} />
 
                           </Switch>
 
                     </ScrollView>
 
                 <BottomBar style={styles.footer}/>
+
+
 
               </SafeAreaView>
 
