@@ -4,7 +4,9 @@ import { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Button, Image, ImageBackground, ScrollView, SafeAreaView } from 'react-native';
 import { Provider as PaperProvider } from "react-native-paper";
 import theme from './CustomProperties/Themes';
+import { NativeRouter, BackButton, Route, Switch } from "react-router-native";
 import { useHistory, useLocation } from 'react-router';
+import axios from 'axios';
 
 // import components
 import TopBar from './Components/TopBar';
@@ -15,20 +17,12 @@ import Splash from './views/Splash';
 import Home from './views/Home';
 import Search from './views/Search';
 
-
-import axios from 'axios';
-
-<<<<<<< HEAD
- 
-=======
-
->>>>>>> 1bc6f5dbf16b5b2a587cd8ed5091bfdc07f91846
+// import redux files
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { appReducer } from './reducers/index';
 
-import { NativeRouter, BackButton, Route, Switch } from "react-router-native";
 
 
 //import reducer from our reducer file
@@ -46,22 +40,33 @@ import { SelectSpecies } from './actions';
 
 
 
+
 const store = createStore(appReducer, applyMiddleware(logger,thunk));
 
 const App = () => {
   const [species, setSpecies] = useState([]);
 
+  // let location = useLocation();
 
+
+  history = useHistory();
+  location = useLocation();
+
+  console.log("location",location)
+console.log("history",history)
 
   return (
     <Provider store={store}>
-      <NativeRouter>
+      {/* <NativeRouter> */}
         <BackButton>
           <PaperProvider theme={theme}>
 
               <SafeAreaView style={styles.container}>
             
+                {
+                  // if ()
 
+                }
 
                 <TopBar style={styles.header}/>
                   
@@ -84,7 +89,7 @@ const App = () => {
 
           </PaperProvider>
         </BackButton>
-      </NativeRouter>
+      {/* </NativeRouter> */}
     </Provider>
 
   );
