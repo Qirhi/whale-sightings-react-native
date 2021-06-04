@@ -4,32 +4,27 @@ import { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Button, Image, ImageBackground, ScrollView, SafeAreaView } from 'react-native';
 import { Provider as PaperProvider } from "react-native-paper";
 import theme from './CustomProperties/Themes';
-
+import { useHistory, useLocation } from 'react-router';
 
 // import components
-import Landing from './Components/Landing';
 import TopBar from './Components/TopBar';
-import SelectSpeciesTitleBar from './Components/SelectSpeciesTitleBar';
-import SelectSpeciesButtons from './Components/SelectSpeciesButtons';
-import TextInputSection from './Components/TextInputSection';
-import Sightings from './Components/Sightings';
+import BottomBar from './Components/BottomBar';
 
 // import views
 import Splash from './views/Splash';
-// import Home from './views/Home';
 import Home from './views/Home';
+import Search from './views/Search';
 
 
 import axios from 'axios';
 
  
-
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { appReducer } from './reducers/index';
 
-import { NativeRouter, BackButton, Route, Switch, Link } from "react-router-native";
+import { NativeRouter, BackButton, Route, Switch } from "react-router-native";
 
 
 //import reducer from our reducer file
@@ -39,7 +34,7 @@ import { NativeRouter, BackButton, Route, Switch, Link } from "react-router-nati
 
 import { Provider } from 'react-redux';
 import { SelectSpecies } from './actions';
-import BottomBar from './Components/BottomBar';
+
 
 //import your store
 // import store from './redux/store';
